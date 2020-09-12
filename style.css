@@ -1,0 +1,76 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+/*Задаём глобальные параметры*/
+body {
+  background:white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: darkslateblue;
+  position: relative;
+  font-family: Verdana;
+  padding: 0 10%;
+}
+h1 {
+  position: absolute;
+  top: 8%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.description {
+  display: flex;
+}
+
+.controls {
+  margin: 0 10px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 2em;
+}
+.controls * {
+  margin-bottom: 10px;
+}
+/*Делаем границу вокруг игрового поля*/
+canvas {
+  border-radius: 10px;
+  background:darkslateblue;
+  box-shadow: 0 0 20px darkslateblue;
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -45%);
+  transition: all .5s linear;
+}
+
+canvas:hover {
+  background: darkslategray;
+  box-shadow: 0 0 20px darkslategray;
+  cursor: none;
+}
+
+.mobile {
+  display: none;
+  font-size: 40px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1439px) {
+  .mobile {
+    display: block;
+  }
+  canvas, .description, .author {
+    display: none;
+  }
+  h1 {
+    top: 25%; 
+    font-size: 150px;
+  }
+}
