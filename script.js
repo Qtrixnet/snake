@@ -1,13 +1,15 @@
 // Поле, на котором всё будет происходить, — тоже как бы переменная
-var canvas = document.getElementById('game');
+let canvas = document.getElementById('game');
+
+let page = document.querySelector('.page');
 // Классическая змейка — двухмерная, сделаем такую же
-var context = canvas.getContext('2d');
+let context = canvas.getContext('2d');
 // Размер одной клеточки на поле — 16 пикселей
-var grid = 16;
+let grid = 16;
 // Служебная переменная, которая отвечает за скорость змейки
-var count = 0;
+let count = 0;
 // А вот и сама змейка
-var snake = {
+let snake = {
   // Начальные координаты
   x: 160,
   y: 160,
@@ -81,8 +83,8 @@ function loop() {
       snake.maxCells++;
       // Рисуем новое яблочко
       // Помним, что размер холста у нас 400x400, при этом он разбит на ячейки — 25 в каждую сторону
-      apple.x = getRandomInt(0, 35) * grid;
-      apple.y = getRandomInt(0, 35) * grid;
+      apple.x = getRandomInt(0, 25) * grid;
+      apple.y = getRandomInt(0, 25) * grid;
     }
     // Проверяем, не столкнулась ли змея сама с собой
     // Для этого перебираем весь массив и смотрим, есть ли у нас в массиве змейки две клетки с одинаковыми координатами 
@@ -90,6 +92,7 @@ function loop() {
       // Если такие клетки есть — начинаем игру заново
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
         // Задаём стартовые параметры основным переменным
+        alert(`Конец игры. Собрано яблок: ${snake.maxCells-4}`);
         snake.x = 160;
         snake.y = 160;
         snake.cells = [];
@@ -97,8 +100,8 @@ function loop() {
         snake.dx = grid;
         snake.dy = 0;
         // Ставим яблочко в случайное место
-        apple.x = getRandomInt(0, 35) * grid;
-        apple.y = getRandomInt(0, 35) * grid;
+        apple.x = getRandomInt(0, 25) * grid;
+        apple.y = getRandomInt(0, 25) * grid;
       }
     }
   });

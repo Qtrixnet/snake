@@ -1,32 +1,32 @@
-html,
-body {
-  height: 100vh;
-  margin: 0;
-}
-/*Задаём глобальные параметры*/
-body {
-  background:white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: darkslateblue;
+
+.page {
   position: relative;
   font-family: Verdana;
   padding: 0 10%;
 }
-h1 {
-  position: absolute;
-  top: 8%; 
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+.game-name {
   font-family: 'Reenie Beanie', cursive;
-  font-size: 80px;
+  font-size: 8em;
   margin: 0;
   padding: 0;
+  text-align: center;
+}
+
+.title {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main {
+  height: 75vh;
 }
 
 .description {
   display: flex;
+  justify-content: center;
 }
 
 .controls {
@@ -35,30 +35,30 @@ h1 {
   list-style: none;
   font-size: 2em;
 }
+
+.author {
+  text-align: center;
+}
+
 .controls * {
   margin-bottom: 10px;
 }
 /*Делаем границу вокруг игрового поля*/
 canvas {
-  border-radius: 10px;
-  background:darkslateblue;
-  box-shadow: 0 0 20px darkslateblue;
-  position: absolute;
-  top: 50%; 
-  left: 50%;
-  transform: translate(-50%, -45%);
+  border-radius: 5px;
+  background: black;
+  /* box-shadow: 0 0 50px gray; */
   transition: all .5s linear;
 }
 
 canvas:hover {
-  background: darkslategray;
-  box-shadow: 0 0 20px darkslategray;
+  background: black;
+  box-shadow: 0 0 50px gray;
   cursor: none;
 }
 
 .mobile {
   display: none;
-  font-size: 40px;
   text-align: center;
 }
 
@@ -68,9 +68,5 @@ canvas:hover {
   }
   canvas, .description, .author {
     display: none;
-  }
-  h1 {
-    top: 25%; 
-    font-size: 150px;
   }
 }
