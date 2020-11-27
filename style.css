@@ -1,72 +1,142 @@
-
-.page {
-  position: relative;
-  font-family: Verdana;
-  padding: 0 10%;
-}
-
-.game-name {
-  font-family: 'Reenie Beanie', cursive;
-  font-size: 8em;
+* {
+  /* outline: 1px dotted red; */
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
-.title {
-  height: 25vh;
+.page {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: black;
+  min-height: 100vh;
+  font-family: Helvetica, sans-serif;
+  background-image: url('./img/snake-black.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
 }
 
-.main {
-  height: 75vh;
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  color:#d8c09c;
+}
+
+.scores {
+  color:#d8c09c;
+  text-shadow: 0 0 30px #000000;
+  font-size: 20px;
+}
+
+.max {
+  margin: 10px 0 5px;
+}
+.current {
+  margin-bottom: 10px;
+}
+.title {
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 110%;
+  color: #d8c09c;
+  text-shadow: 0 0 30px #000000;
+  z-index: 999;
 }
 
 .description {
+  width: 30%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  font-size: 34px;
 }
 
-.controls {
-  margin: 0 10px 0;
-  padding: 0;
-  list-style: none;
-  font-size: 2em;
+.description li {
+  padding: 10px;
 }
 
-.author {
+.arrow {
   text-align: center;
 }
 
-.controls * {
-  margin-bottom: 10px;
+.arrow li span {
+  color: #5164d5;
 }
+
+.author {
+  width: 30%;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.controls {
+  list-style: none;
+}
+
+.mobile-conrols {
+  display: none;
+}
+
 /*Делаем границу вокруг игрового поля*/
 canvas {
-  border-radius: 5px;
   background: black;
-  /* box-shadow: 0 0 50px gray; */
+  box-shadow: 0 0 100px #d8c09c1f;
+  width: 30%;
   transition: all .5s linear;
 }
 
 canvas:hover {
-  background: black;
-  box-shadow: 0 0 50px gray;
-  cursor: none;
+  cursor: red
 }
 
-.mobile {
-  display: none;
-  text-align: center;
-}
-
-@media screen and (max-width: 1439px) {
-  .mobile {
-    display: block;
+@media screen and (max-width: 767px) {
+  .content {
+    flex-direction: column;
   }
-  canvas, .description, .author {
+  canvas {
+    order: 1;
+    width: 100%;
+  }
+  .description {
+    order: 2;
+  }
+  .author {
+    order: 3;
+    align-self: center;
+    margin-top: 20px;
+  }
+  .page {
+    height: 100vh;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: -50% 50%;
+    box-shadow: inset 0 0 40px black;
+  }
+  .controls {
     display: none;
+  }
+
+  .mobile-conrols {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    text-align: center;
+  }
+
+  .mobile-conrols li {
+    width: 40px;
+    height: 40px;
+  }
+
+  .up, .left, .right, .down {
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }

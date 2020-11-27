@@ -1,5 +1,19 @@
 // Поле, на котором всё будет происходить, — тоже как бы переменная
 let canvas = document.getElementById('game');
+// let score = document.querySelector('.scores');
+let currentScrore = document.querySelector('.current');
+let maxScore = document.querySelector('.max');
+let maxScores = 0;
+
+// let maxScores = localStorage.getItem("max-scores");
+// console.log(maxScores)
+
+  if (localStorage.getItem("max-scores")) {
+    maxScore.textContent = `Рекорд: ${localStorage.getItem("max-scores")}`;
+    maxScores = localStorage.getItem("max-scores");
+  } else {
+    maxScore.textContent = `Рекорд: 0`;
+  }
 
 let page = document.querySelector('.page');
 // Классическая змейка — двухмерная, сделаем такую же
@@ -72,15 +86,17 @@ function loop() {
   context.fillStyle = '#ff003a';
   context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
   // Одно движение змейки — один новый нарисованный квадратик 
-  context.fillStyle = '#79ff00';
+  context.fillStyle = '#5164d5';
   // Обрабатываем каждый элемент змейки
   snake.cells.forEach(function (cell, index) {
-    // Чтобы создать эффект клеточек, делаем зелёные квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
+    // Чтобы создать эффект клеточек, делаем квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
     context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
     // Если змейка добралась до яблока...
     if (cell.x === apple.x && cell.y === apple.y) {
       // увеличиваем длину змейки
       snake.maxCells++;
+      currentScrore.textContent = `Текущий счет: ${snake.maxCells - 4}`;
+      
       // Рисуем новое яблочко
       // Помним, что размер холста у нас 400x400, при этом он разбит на ячейки — 25 в каждую сторону
       apple.x = getRandomInt(0, 25) * grid;
@@ -92,7 +108,14 @@ function loop() {
       // Если такие клетки есть — начинаем игру заново
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
         // Задаём стартовые параметры основным переменным
-        alert(`Конец игры. Собрано яблок: ${snake.maxCells-4}`);
+        // maxScores = localStorage.getItem("max-scores")
+        if ((snake.maxCells-4) > localStorage.getItem('max-scores')) {
+          localStorage.setItem('max-scores', snake.maxCells-4);
+          maxScore.textContent = `Рекорд: ${snake.maxCells-4}`;
+        }
+        // score.textContent = `Счет в прошлом раунде: ${lastScore}`;
+        currentScrore.textContent = `Текущий счет: 0`
+        alert(`Игра окончена. Очков набрано: ${snake.maxCells-4}`);
         snake.x = 160;
         snake.y = 160;
         snake.cells = [];

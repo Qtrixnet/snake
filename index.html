@@ -4,67 +4,62 @@
 <head>
   <title>Змейка</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-12 title">
-        <h1 class="game-name text-primary">SNAKE</h1>
-      </div>
-      <div class="col-12 mobile">
-        <div class="alert alert-primary" role="alert">
-          Проект работает только на устройствах с клавиатурой и горизонтальным разрешением не менее 1440px
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center main">
-      <div class="col">
-        <div class="description">
-          <ul class="controls text-primary">
-            <li>
-              <span>&uarr;</span>
-            </li>
-            <li>
-              <span>&darr;</span>
-            </li>
-            <li>
-              <span>&larr;</span>
-            </li>
-            <li>
+  <div class="page">
+    <h1 class="title">Snake</h1>
+    <!-- <span class="scores">Счет c прошлого раунда будет здесь</span> -->
+    <span class="scores max"></span>
+    <span class="scores current">Текущий счет: 0</span>
+    <section class="content">
+      <div class="description">
+        <ul class="mobile-conrols">
+          <li></li>
+          <li class="up">&uarr;</li>
+          <li></li>
+          <li class="left">&larr;</li>
+          <li></li>
+          <li class="right">&rarr;</li>
+          <li></li>
+          <li class="down">&darr;</li>
+          <li></li>
+        </ul>
+        <ul class="controls arrow">
+          <li>
+            <span>&uarr;</span>
+          </li>
+          <li>
+            <span>&darr;</span>
+          </li>
+          <li>
+            <span>&larr;</span>
+          </li>
+          <li>
             <span>&rarr;</span>
-            </li>
-          </ul>
-          <ul class="controls text-dark">
-            <li>
-              <span>Up</span>
-            </li>
-            <li>
-              <span>Down</span>
-            </li>
-            <li>
-              <span>Left</span>
-            </li>
-            <li>
+          </li>
+        </ul>
+        <ul class="controls hint">
+          <li>
+            <span>Up</span>
+          </li>
+          <li>
+            <span>Down</span>
+          </li>
+          <li>
+            <span>Left</span>
+          </li>
+          <li>
             <span>Right</span>
-            </li>
-          </ul>
-        </div>
+          </li>
+        </ul>
       </div>
-      <div class="col">
-        <canvas id="game" width="400" height="400"></canvas>
-      </div>
-      <div class="col align-self-center text-dark author">
-        <span>© Kirill Shashichev 2020</span>
-      </div>
-    </div>
+      <canvas id="game" width="400" height="400"></canvas>
+      <p class="author">© 2020. Кирилл Шашичев</p>
+    </section>
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 </body>
 
